@@ -1,0 +1,16 @@
+{
+    "name": "amorphine/cardpaygo-laravel",
+    "description": "Cardpaygo helper",
+    "type": "library",
+    "require": {
+        "illuminate/support": "~5.1|~5.2|~5.3|~5.4|~5.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pavel Fedin",
+            "email": "fe-pavel@yandex.ru"
+        }
+    ],
+    "minimum-stability": "stable"
+}
