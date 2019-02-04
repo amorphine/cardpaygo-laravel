@@ -1,28 +1,34 @@
 <?php
 /**
- * PayPal Setting & API Credentials
- * Created by Raza Mehdi <srmk@outlook.com>.
+ * CardPayGo module Setting
+ * Created by Pavel Fedin <fe-pavel@yandex.ru>.
  */
 
 return [
-    'mode'    => 'sandbox', // Can only be 'sandbox' Or 'live'. If empty or invalid, 'live' will be used.
-    'sandbox' => [
-        'username'    => env('PAYPAL_SANDBOX_API_USERNAME', ''),
-        'password'    => env('PAYPAL_SANDBOX_API_PASSWORD', ''),
-        'secret'      => env('PAYPAL_SANDBOX_API_SECRET', ''),
-        'certificate' => env('PAYPAL_SANDBOX_API_CERTIFICATE', ''),
-        'app_id'      => 'APP-80W284485P519543T', // Used for testing Adaptive Payments API in sandbox mode
-    ],
-    'live' => [
-        'username'    => env('PAYPAL_LIVE_API_USERNAME', ''),
-        'password'    => env('PAYPAL_LIVE_API_PASSWORD', ''),
-        'secret'      => env('PAYPAL_LIVE_API_SECRET', ''),
-        'certificate' => env('PAYPAL_LIVE_API_CERTIFICATE', ''),
-        'app_id'      => '', // Used for Adaptive Payments API
-    ],
+    // mandatory
+    'merchantID'    => '',
 
-    'payment_action' => 'Sale', // Can only be 'Sale', 'Authorization' or 'Order'
-    'currency'       => 'USD',
-    'notify_url'     => '', // Change this accordingly for your application.
-    'locale'         => '', // force gateway language  i.e. it_IT, es_ES, en_US ... (for express checkout only)
+    // optional. The password you have configured for the merchantID.
+    // This is set within the MMS. Currently not used
+    'merchantPwd'   => '',
+
+    //ISO standard country code for the merchant’s location.
+    'countryCode'   => '',
+
+    //ISO standard currency code for this transaction.
+    //You may only use currencies that are enabled for
+    //your merchant account.
+    'currencyCode'  => '',
+
+    // default is SALE
+    'action'        => '',
+
+    // optional. A non-public URL which will receive a copy
+    // of the transaction result by POST.
+    'callbackURL'   => '',
+
+    // signing algorithm. Available: SHA512, SHA256, SHA1, MD5, CRC32. Default one: SHA512
+    'signatureAlgorithm' => '',
+
+    'signaturePassphrase' => '',
 ];

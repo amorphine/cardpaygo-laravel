@@ -1,6 +1,6 @@
 {
     "name": "amorphine/cardpaygo-laravel",
-    "description": "Cardpaygo helper",
+    "description": "Cardpaygo payment system helper. Currently supports Hosted Form only",
     "type": "library",
     "require": {
         "illuminate/support": "~5.1|~5.2|~5.3|~5.4|~5.5"
@@ -12,5 +12,21 @@
             "email": "fe-pavel@yandex.ru"
         }
     ],
-    "minimum-stability": "stable"
+    "autoload": {
+        "psr-4": {
+            "Amorphine\\CardPayGo\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Amorphine\\CardPayGo\\Providers\\CardPayGoServiceProvider"
+            ],
+            "aliases": {
+                "CardPayGo": "Amorphine\\CardPayGo\\Facades\\CardPayGo"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
