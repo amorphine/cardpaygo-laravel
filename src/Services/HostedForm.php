@@ -63,13 +63,14 @@ class HostedForm {
      */
     private function resolveConfig(array $config = [])
     {
-        // Set common Credentials
-        if (function_exists('config')) {
-            $this->loadConfig(
-                config('cardpaygo')
-            );
-        } elseif (!empty($config)) {
+        if (count($config)) {
             $this->loadConfig($config);
+        } else {
+            if (function_exists('config')) {
+                $this->loadConfig(
+                    config('cardpaygo')
+                );
+            }
         }
     }
 
